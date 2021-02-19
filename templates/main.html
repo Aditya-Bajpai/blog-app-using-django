@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Shinchan Fan's</title>
+</head>
+<body>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .author{
+            font-weight: bold;
+        }
+    </style>
+    <nav class = "red accent-3">
+            <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Shinchan Love</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">JavaScript</a></li>
+            </ul>
+            </div>
+        </nav>
+    <h1>A haven for sharing the love for shinchan</h1>
+    {%block content %}
+        {% for post in object_list %}
+            <ul>
+                <li>
+                    "{{post.title}}" by {{post.author}}
+                </li>
+            </ul>
+        {%endfor%}
+    <a href="{"></a>
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
