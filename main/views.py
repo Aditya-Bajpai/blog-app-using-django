@@ -10,4 +10,5 @@ class Home(ListView):
     template_name = "main.html"
 
 class Detail(DetailView):
+    model = Post
     template_name = "detail.html"

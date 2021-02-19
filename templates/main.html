@@ -13,8 +13,8 @@
         h1{
             text-align: center;
         }
-        .author{
-            font-weight: bold;
+        ul{
+            text-align: center;
         }
     </style>
     <nav class = "red accent-3">
@@ -25,17 +25,19 @@
             </ul>
             </div>
         </nav>
-    <h1>A haven for sharing the love for shinchan</h1>
+    
     {%block content %}
+    <h1>A haven for sharing the love for shinchan</h1>
         {% for post in object_list %}
             <ul>
                 <li>
-                    "{{post.title}}" by {{post.author}}
+                    <a href="{%url 'article' post.pk%}">
+                        "{{post.title}}" by {{post.author.first_name}} {{post.author.last_name}}
+                    </a>
                 </li>
             </ul>
         {%endfor%}
-    <a href="{"></a>
-    {% endblock %}
+        {% endblock%}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
