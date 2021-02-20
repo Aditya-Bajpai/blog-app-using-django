@@ -1,4 +1,7 @@
 {% extends 'main.html'%}
+{% block title %}
+<title>{{post.title}}</title>
+{% endblock %}
 {% block content %}
 <style>
     .detail{
@@ -7,7 +10,7 @@
 </style>
 <div class="detail">
     <h1>{{post.title}}</h1>
-    <p>{{post.body}}</p>
+    {{post.body}} <br>
     <small>{{post.author.first_name}} {{post.author.last_name}}</small>
 </div>
 {%endblock%}

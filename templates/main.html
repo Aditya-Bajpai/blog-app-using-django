@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {% block title %}
     <title>Shinchan Fan's</title>
+    {% endblock %}
 </head>
 <body>
     <style>
@@ -21,7 +23,8 @@
             <div class="nav-wrapper">
             <a href="/" class="brand-logo">Shinchan Love</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/">JavaScript</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'create' %}">Create Your Own Post</a></li>
             </ul>
             </div>
         </nav>

@@ -1,0 +1,17 @@
+{% extends 'main.html'%}
+{% block title %}
+<title>Add Blog Post</title>
+{% endblock %}
+{% block content %}
+<style>
+    form{
+        padding: 12px;
+    }
+</style>
+    <h1>Add Blog Post</h1>
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Post</button>
+    </form>
+{%endblock%}
