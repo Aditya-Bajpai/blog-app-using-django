@@ -1,0 +1,21 @@
+{% extends 'main.html'%}
+{% block title %}
+<title>Delete Blog Post</title>
+{% endblock %}
+{% block content %}
+<style>
+    h3{
+        text-align: center;
+    }
+    form{
+        text-align: center;
+    }
+</style>
+    <h3>Delete: {{post.title}}</h3>
+    <br>
+    <form method = "POST">
+        {% csrf_token %}
+        <strong>Are you sure?!</strong><br>
+        <a class="waves-effect waves-light btn">Delete</a>
+    </form>
+{%endblock%}

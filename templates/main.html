@@ -37,7 +37,7 @@
                     <a href="{%url 'article' post.pk%}">
                         "{{post.title}}" by {{post.author.first_name}} {{post.author.last_name}}
                         <br>
-                        <button><a href="{%url 'update' post.pk%}">Update</a></button>
+                        <a href="{%url 'update' post.pk%}"><small>Update</small></a>  |  <a href="{%url 'delete' post.pk%}"><small>Delete</small></a>
                     </a>
                 </li>
             </ul>

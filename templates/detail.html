@@ -9,7 +9,7 @@
     }
 </style>
 <div class="detail">
-    <h1>{{post.title}}</h1>
+    <h1>{{post.title}}</h1> - <a href="{%url 'update' post.pk%}"><small>Update</small></a> <br>
     {{post.body}} <br>
     <small>{{post.author.first_name}} {{post.author.last_name}}</small>
 </div>
