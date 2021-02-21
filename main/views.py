@@ -27,7 +27,7 @@ class UpdatePost(UpdateView):
     template_name = "updatepost.html"
     fields = ['title' , 'body' , 'author']
 
-class DeletePost(DeleteView , SuccessMessageMixin):
+class DeletePost(DeleteView):
     model=Post
     template_name = "deletepost.html"
     success_url = reverse_lazy('main')
