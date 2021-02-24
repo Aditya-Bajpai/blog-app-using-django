@@ -7,7 +7,8 @@ from datetime import date  , datetime
 
 class Post(models.Model):
     title = models.CharField(max_length=200 , null= False)
-    author = models.ForeignKey(User , on_delete=models.CASCADE , default="Author Unkown")
+    author = models.ForeignKey(User , on_delete=models.CASCADE , default="Author Unkown" , null=True)
+    #author = models.CharField(max_length=200 , null = True , default="Author Uknown")
     body = models.TextField()
 
     def __str__(self):

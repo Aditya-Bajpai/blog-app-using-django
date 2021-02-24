@@ -9,8 +9,14 @@
     }
 </style>
 <div class="detail">
+    {% if user.is_authenticated %}
     <h1>{{post.title}}</h1> - <a href="{%url 'update' post.pk%}"><small>Update</small></a> <br>
     {{post.body}} <br>
     <small>{{post.author.first_name}} {{post.author.last_name}}</small>     |       {{post.pub_date}}
+    {% else %}
+    <h1>{{post.title}}</h1><br>
+    {{post.body|safe}} <br>
+    <small>{{post.author.first_name}} {{post.author.last_name}}</small>     |       {{post.pub_date}}
+    {% endif %}
 </div>
 {%endblock%}

@@ -8,10 +8,14 @@
         padding: 12px;
     }
 </style>
+{% if user.is_authenticated %}
     <h1>Add Blog Post</h1>
     <form method = "POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button>Post</button>
     </form>
+{% else %}
+<h1>You have to be logged in to add posts</h1>
+{% endif %}
 {%endblock%}
