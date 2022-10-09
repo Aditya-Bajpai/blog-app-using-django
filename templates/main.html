@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     {% block title %}
     <title>Shinchan Fan's</title>
     {% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        h1{
-            text-align: center;
-        }
-        ul{
-            text-align: center;
-        }
+      h1 {
+        text-align: center;
+      }
+      ul {
+        text-align: center;
+      }
     </style>
-    <nav class = "red accent-3">
-            <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Shinchan Love</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                {%if user.is_authenticated%}
-                    <li><a href="{% url 'create' %}">Create Your Own Post</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'register' %}">Register to post</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-                <li><a href="/">Home</a></li>
-                
-            </ul>
-            </div>
-        </nav>
-    
+    <nav class="red accent-3">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Shinchan Love</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {%if user.is_authenticated%}
+          <li><a href="{% url 'create' %}">Create Your Own Post</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'register' %}">Register to post</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+
     {%block content%}
-    <h1>A haven for sharing the love for shinchan</h1>
-        {% for post in object_list %}
-        {% if user.is_authenticated %}
-        <ul>
-            <li>
-                <a href="{%url 'article' post.pk%}">
-                    "{{post.title}}" by {{post.author.first_name}} {{post.author.last_name}}
-                    <br>
-                    <a href="{%url 'update' post.pk%}"><small>Update</small></a>  |  <a href="{%url 'delete' post.pk%}"><small>Delete</small></a>
-                </a>
-            </li>
-        </ul>
-        {% else %}
-        <ul>
-            <li>
-                <a href="{%url 'article' post.pk%}">
-                    "{{post.title}}" by {{post.author.first_name}} {{post.author.last_name}}
-                    <br>
-                </a>
-                {{post.body|slice:":100"}}...
-            </li>
-        </ul>
-        {% endif %}
-        {%endfor%}
-    {%endblock%}
+    <h1>Aditya's Blogs!</h1>
+    {% for post in object_list %} {% if user.is_authenticated %}
+    <ul>
+      <li>
+        <a href="{%url 'article' post.pk%}">
+          "{{post.title}}" by {{post.author.first_name}}
+          {{post.author.last_name}}
+          <br />
+          <a href="{%url 'update' post.pk%}"><small>Update</small></a> |
+          <a href="{%url 'delete' post.pk%}"><small>Delete</small></a>
+        </a>
+      </li>
+    </ul>
+    {% else %}
+    <ul>
+      <li>
+        <a href="{%url 'article' post.pk%}">
+          "{{post.title}}" by {{post.author.first_name}}
+          {{post.author.last_name}}
+          <br />
+        </a>
+        {{post.body|slice:":100"}}...
+      </li>
+    </ul>
+    {% endif %} {%endfor%} {%endblock%}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+  </body>
 </html>
